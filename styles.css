@@ -9,7 +9,7 @@
     font-family: Arial, sans-serif;
     color: #a2d7ff;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     /* The water background will be added as a pseudo-element */
@@ -29,6 +29,19 @@
     z-index: -2;
   }
   
+  .shader {
+    position: absolute;
+    top: -6em;
+    left: 0;
+    width: 100vw;
+    /* height: 100vh; */
+    mix-blend-mode: multiply;
+    opacity: .75;
+    object-fit: fill; /* Ensure the image covers the space without distortion */
+    z-index: 1;
+    pointer-events: none;
+  }
+
   /* Top images: make them fill the viewport */
   .top-image {
     position: absolute;
@@ -38,6 +51,7 @@
     /* height: 100vh; */
     object-fit: fill; /* Ensure the image covers the space without distortion */
     z-index: 1;
+    pointer-events: none;
   }
   
   .shadow {
@@ -52,11 +66,11 @@
 
   /* Capybara image styling: scales to 50% width relative to its container */
   .capybara {
-    width: 50%;
+    width: 25%;
     height: auto;
-    margin: 20px 0;
-    position: relative;
-    z-index: 1;
+    margin: 5em 10em;
+    position: relative center;
+    z-index: 100;
   }
 
     
@@ -71,7 +85,7 @@
   header {
     margin-top: 12em;
     position: absolute center;
-    z-index: 2;
+    z-index: 100;
   }
   
   /* Button styling */
@@ -84,7 +98,7 @@
     font-size: 1rem;
     cursor: pointer;
     transition: transform 0.3s;
-    z-index: 4;
+    z-index: 100;
   }
   
   button:hover {
