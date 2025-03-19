@@ -4,10 +4,16 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+  .falling-text {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  /* Other styles */
+}
+
   body {
     font-family: Arial, sans-serif;
-    color: #a2d7ff;
+    color: #ddd58e;
+    border: #ffffff;
+    border-width: 1em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -87,6 +93,22 @@
     position: absolute center;
     z-index: 100;
   }
+
+  .falling-text {
+    position: fixed;
+    font-size: 2rem;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+    color: #fff; /* Adjust for contrast */
+    opacity: 0;
+    transition: transform 2s ease-out, opacity 2s ease-out;
+    transform: translate(0, 0);
+    z-index: 101;
+  }  
+  
+  .falling-text.show {
+    opacity: 1;
+    transform: translateY(200px); /* Adjust distance as needed */
+  }
   
   /* Button styling */
   button {
@@ -105,8 +127,53 @@
     transform: scale(1.05);
   }
   
-  /* Love message hidden initially */
-  .hidden {
-    display: none;
-  }
+/* Love message hidden initially */
+.hidden {
+  display: none;
+}
   
+/* Modal overlay styling */
+.modal {
+  position: fixed; /* fixed so it overlays the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(215, 194, 194, 0.5); /* semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}  
+
+/* Modal content styling */
+.modal-content {
+  background: #f8f8f4;  /* light off-white */
+  border: 3px solid #ff8cba; /* cute border */
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Modal close button styling */
+.modal-content button {
+  padding: 10px 20px;
+  background: #ff8cba;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.modal-content button:hover {
+  transform: scale(1.05);
+}
